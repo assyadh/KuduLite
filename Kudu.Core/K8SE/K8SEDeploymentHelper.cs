@@ -141,6 +141,11 @@ namespace Kudu.Core.K8SE
         {
             var appType = context.Request.Headers["K8SE_APP_TYPE"].ToString();
 
+            foreach (var item in context.Request.Headers)
+            {
+                Console.WriteLine($"haassyad HEADER: key: {item.Key} - value: {item.Value}");
+            }
+
             if (string.IsNullOrEmpty(appType))
             {
                 context.Response.StatusCode = 401;

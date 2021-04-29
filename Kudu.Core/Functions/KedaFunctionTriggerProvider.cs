@@ -58,7 +58,7 @@ namespace Kudu.Core.Functions
 
             var triggers = CreateScaleTriggers(triggerBindings, hostJsonText).ToList();
 
-            if (appKind?.ToLowerInvariant() == Constants.WorkflowAppKind.ToLowerInvariant())
+            if (appKind?.ToLowerInvariant().Contains(Constants.WorkflowAppKind.ToLowerInvariant()) == true)
             {
                 // NOTE(haassyad) Check if the host json has the workflow extension loaded. If so we will add a queue scale trigger for the job dispatcher queue.
                 if (TryGetWorkflowKedaTrigger(hostJsonText, appName, out ScaleTrigger workflowScaleTrigger))
