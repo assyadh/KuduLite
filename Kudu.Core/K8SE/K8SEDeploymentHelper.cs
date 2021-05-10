@@ -142,6 +142,11 @@ namespace Kudu.Core.K8SE
         {
             var appType = context.Request.Headers["K8SE_APP_TYPE"].ToString();
 
+            foreach (var item in context.Request.Headers)
+            {
+                Console.WriteLine($"Context headers: key: {item.Key} value: {item.Value}");
+            }
+
             if (string.IsNullOrEmpty(appType))
             {
                 appType = Constants.K8SEAppTypeDefault;
