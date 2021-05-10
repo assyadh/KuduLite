@@ -64,7 +64,7 @@ namespace Kudu.Services.Web
             }
 
             // Cache the App Environment for this request
-            context.Items.Add("environment", GetEnvironment(homeDir, appName, null, null, appNamenamespace, appType));
+            context.Items.TryAdd("environment", GetEnvironment(homeDir, appName, null, null, appNamenamespace, appType));
 
             // Try cache the appName for this request
             context.Items.TryAdd("appName", appName);
