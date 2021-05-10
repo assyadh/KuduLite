@@ -129,6 +129,8 @@ namespace Kudu.Core.K8SE
         {
             var appName = context.Request.Headers["K8SE_APP_NAME"].ToString();
 
+            Console.WriteLine($"APPNAME Retrieved: {appName}");
+
             if (string.IsNullOrEmpty(appName))
             {
                 context.Response.StatusCode = 401;
@@ -147,9 +149,12 @@ namespace Kudu.Core.K8SE
                 Console.WriteLine($"Context headers: key: {item.Key} value: {item.Value}");
             }
 
+            Console.WriteLine($"APPTYPE Retrieved: {appType}");
+
             if (string.IsNullOrEmpty(appType))
             {
                 appType = Constants.K8SEAppTypeDefault;
+                Console.WriteLine($"APPTYPE fallback to default: {appType}");
             }
             return appType;
         }
