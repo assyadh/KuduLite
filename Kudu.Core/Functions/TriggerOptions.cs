@@ -13,5 +13,11 @@ namespace Kudu.Core.Functions
 
         [JsonProperty(PropertyName = "cooldownPeriod")]
         public int? cooldownPeriod { get; set; }
+
+        [JsonProperty(PropertyName = "minReplicaCount")]
+        public int? MinReplicaCount { get; set; }
+
+        [JsonProperty(PropertyName = "maxReplicaCount")]
+        public int? MaxReplicaCount { get; set; }
     }
 }

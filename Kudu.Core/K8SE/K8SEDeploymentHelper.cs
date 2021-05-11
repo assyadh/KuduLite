@@ -198,7 +198,9 @@ namespace Kudu.Core.K8SE
                 {
                     TriggerOptions = new TriggerOptions
                     {
-                        Triggers = functionTriggers
+                        Triggers = functionTriggers,
+                        MinReplicaCount = 2,
+                        MaxReplicaCount = 10,
                     },
                     Code = new CodeSpec
                     {
