@@ -392,6 +392,8 @@ namespace Kudu.Services.Deployment
 
                 FileSystemHelpers.CreateDirectory(extractTargetDirectory);
 
+                Console.WriteLine($"Zip {info.FullName}");
+
                 using (var file = info.OpenRead())
 
                 using (var zip = new ZipArchive(file, ZipArchiveMode.Read))
